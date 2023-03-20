@@ -1,0 +1,32 @@
+#230314
+
+#10869번
+
+# A,B = input().split()
+# print(int(A)+int(B))
+# print(int(A)-int(B))
+# print(int(A)*int(B))
+# print(int(int(A)/int(B)))
+# print(int(A)%int(B))
+
+#10926번
+
+# a = input()
+# print(a+'??!')
+
+#11382번
+
+# A,B,C = map(int, input().split())
+# print(A+B+C)
+
+#230318
+
+#1330번
+
+# A,B = map(int, input().split())
+# if A > B:
+#     print('>')
+# elif A < B:
+#     print('<')
+# else:
+#     print('==')
