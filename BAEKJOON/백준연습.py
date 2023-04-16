@@ -1,111 +1,103 @@
-#230331
+#230416
 
-#2739번
+#3009번
+# x = []
+# y = []
+# for i in range(3):
+#     a,b = map(int, input().split())
+#     x.append(a)
+#     y.append(b)
+# for i in range(3):
+#     if x.count(x[i]) == 1:
+#         x_re = x[i]
+#     if y.count(y[i]) == 1:
+#         y_re = y[i]
+# print(x_re, y_re)
 
-# N = int(input())
-# for i in range(1,10):
-#     print(f'{N} * {i} = {N*i}')
-    
-#10430번
+#1085번
+# x,y,w,h = map(int, input().split())
+# print(min(x,y,w-x,h-y))
 
-# A,B,C = map(int, input().split())
+#4153번
+# import math
+# while True:
+#     a,b,c=map(int, input().split())
+#     if a==0 and b==0 and c==0:
+#         break
+#     mylist = [a,b,c]
+#     mylist.sort(reverse=True)
+#     if mylist[0] == math.sqrt((pow(mylist[1],2)+pow(mylist[2],2))):
+#         print('right')
+#     else:
+#         print('wrong')
 
-# print((A+B)%C)
-# print(((A%C) + (B%C))%C)
-# print((A*B)%C)
-# print(((A%C) * (B%C))%C)
+#3053번
+# import math
+# R = int(input())
+# print(pow(R,2)*math.pi)
+# print(2*R*R)
 
-#9498번
-
+#10250번
 # T = int(input())
-# if 90 <= T <= 100:
-#     print('A')
-# elif 80 <= T <= 89:
-#     print('B')
-# elif 70 <= T <= 79:
-#     print('C')
-# elif 60 <= T <= 69:
-#     print('D')
-# else:
-#     print('F')
-    
-#14681번
+# for i in range(T):
+#     H,W,N = map(int, input().split())
+#     #H:층 수 W:각 층 방 수 N: 몇번째 고객
+#     floor = N % H
+#     num = (N//H)+1
+#     if floor ==0:
+#         floor = H
+#         num -=1
+#     print(floor * 100 + num)
 
-# x = int(input())
-# y = int(input()) 
-
-# if x>0 and y>0:
-#     print('1')
-# elif x<0 and y>0:
-#     print('2')
-# elif x<0 and y<0:
-#     print('3')
-# else:
-#     print('4')
-
-#2753번
-
-# y = int(input())
-# if y%4==0 and y%100!=0:
-#     print('1')
-# elif y%400==0:
-#     print('1')
-# else:
-#     print('0')
-
-#2438번
-
-# N = int(input())
-# for i in range(1,N+1):
-#     print('*'*i)
-
-#2439번
-
-# N = int(input())
-# for i in range(1,N+1):
-#     print(' ' * (N-i) + '*' * i)
-
-#2741번
-
-# N = int(input())
-# for i in range(1,N+1):
-#     print(i)
-
-#2742번
-
-# N = int(input())
-# for i in range(N,0,-1):
-#     print(i)
-
-#11022번
-
-# case_num = int(input())
-# for i in range(case_num):
-#     A,B = map(int, input().split())
-#     print(f"Case #{i+1}: {A} + {B} = {A+B}")
-
-#8393번
-
+#10872번
 # n = int(input())
-# sum=0
+# sum=1
 # for i in range(1, n+1):
-#     sum += i
-# print(sum)
+#     sum *= i
+# print(sum)    
 
-#10871번
-
-# N,X = map(int, input().split())
-# mylist = input().split()
-# mylist = list(map(int, mylist))
-    
+#2562번
+# mylist =[]
+# for i in range(9):
+#     mylist.append(int(input()))
+# max=1
+# idx=-1
 # for i in range(len(mylist)):
-#     if mylist[i] < X:
-#         print(mylist[i], end=' ')
+#     if max < mylist[i]:
+#         idx=i+1
+#         max = mylist[i]
+# print(max)  
+# print(idx)      
 
+#2577번
+# a=[]
+# for i in range(3):
+#     a.append(int(input()))
+# num = str(a[0]*a[1]*a[2])
+# for i in range(10):
+#     print(num.count(str(i)), end='\n')
 
-# N,X = map(int, input().split())
-# mylist = list(map(int, input().split()))
-    
-# for i in range(len(mylist)):
-#     if mylist[i] < X:
-#         print(mylist[i], end=' ')
+#3052번
+# a=[]
+# for i in range(10):
+#     a.append(int(input()))
+# b=[]
+# for i in range(10):
+#     b.append(int(a[i]%42))
+# myset=set(b)
+# mylist = list(myset)
+# print(len(mylist))
+
+#8958번
+# T = int(input())
+# for i in range(T):
+#     myinput = input()
+#     plus = 0
+#     score = 0
+#     for i in range(len(myinput)):
+#         if myinput[i] == 'O':
+#             plus += 1
+#             score += plus 
+#         else:
+#             plus = 0
+#     print(score)
