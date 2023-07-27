@@ -1,34 +1,77 @@
-# 2주차 1
+# 3주차 1
 
-# my = list(map(int,input().split()))
-# my.sort()
-# print(my[2]+my[3]-my[0]-my[1])
+import sys
+input = sys.stdin.readline
+N = int(input())
+S = list(map(int, input().split()))
+print(sum(S))
 
-# 2주차 2
+# 3주차 2
 
-# n = int(input())
-# my = list(map(int, input().split()))
-# print(oct(sum(my))[2:])
 
-# 2주차 3
+answer = list(map(int, input()))
+user_input = list(map(int, input()))
 
-# def prime(N):
-# 	is_prime = [1 for _ in range(N+1)] # 초기에는 다 소수로 지정.
-# 	prime = [] # 찐 소수인 리스트.
-# 	for i in range(2, N+1): # 2부터 N까지 범위.
-# 		if not is_prime[i]: # 소수가 아닌 것들은 제외
-# 			continue
-# 		prime.append(i) # 찐 소수에 넣기
-# 		for j in range(i*2, N+1, i): # 그 소수의 배수도 제외
-# 			is_prime[j] = 0
-# 	return prime
+def fail():
+    for i in range(4):
+        if result[i] != 2:
+            continue
+        while True:
+            temp = (user_input[i] + 1) % 10
+            out = temp not in user_input
+            user_input[i] = temp
+            if out:
+                break
 
-# n = int(input())
-# my = list(map(int, input().split()))
-# my = [0]+ my
-# ans = 0
-# prime = prime(n)
-# for k in prime:
-# 	ans += my[k]
-	
-# print(ans)
+def ball():
+    if 1 not in result:
+        return
+    pos = []
+    value = []
+    for i in range(4):
+        if result[i] != 0:
+            pos.append(i)
+            value.append(user_input[i])
+    for i in range(len(pos)):
+        if i == 0:
+            user_input[pos[i]] = value[-1]
+        else:
+            user_input[pos[i]] = value[i - 1]
+
+make_input_count = 0
+while True:
+    make_input_count += 1
+    result = [2, 2, 2, 2]
+    if user_input == answer:
+        print(make_input_count)
+        break
+
+    for i in range(4):
+        if user_input[i] in answer:
+            if user_input[i] == answer[i]:
+                result[i] = 0
+            else:
+                result[i] = 1
+                
+    fail()
+    ball()
+
+# 3주차 3
+
+N,K = map(int, input().split())
+mat = [[0 for _ in range(N+1)] for _ in range(N+1)]
+cha_x = [-1,1,0,0]
+cha_y = [0,0,1,-1]
+for i in range(K):
+	x, y = map(int, input().split())
+	mat[x][y] += 1
+	for j in range(4):
+		nx, ny = x + cha_x[j], y + cha_y[j]
+		if nx > N or nx < 1 or ny > N or ny < 1:
+			continue
+		mat[nx][ny] += 1
+ans = 0
+for k in range(1, N+1):
+	for h in range(1, N+1):
+		ans += mat[k][h]
+print(ans)	
